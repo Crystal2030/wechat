@@ -1,0 +1,15 @@
+<import src="../home-list-template/home-list-template.wxml" />
+<template name="homeTemplate">
+<view class="home-container">
+  <view class="home-head">
+    <text class="home-title">{{category}}</text>
+    <view>
+      <text class="more" catchtap="onMoreTap">更多</text>
+      <image class="arrow" src="/images/icon/arrow-right.png"></image>
+    </view>
+  </view>
+  <block wx:for="{{lists}}" wx:for-item="list" wx:key="unique">
+  <template is="homeListTemplate" data="{{...list}}"/>
+  </block>
+</view>
+</template>

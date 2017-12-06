@@ -1,0 +1,11 @@
+<import src="./article-template/article-template.wxml" />
+
+<view>
+  <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx" wx:key="unique">
+  <!--自定义变量必须data-开头，将对象的某个值进行数据绑定 data-postid建议小写，因为后台返回key始终为小写-->
+  <view catchtap='onPostTap' data-postid="{{item.postId}}">
+      <!--使用template，传递对象是使用...来展开对象，否则调用方需要使用item.oject来获取数据-->
+      <template is="postItem" data="{{...item}}" />
+  </view>
+  </block>
+</view>

@@ -1,0 +1,22 @@
+
+.home-list-container{
+  display: flex;
+  align-items: center;
+  height: 50rpx;
+}
+
+.home-list-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.home-list-title{
+  flex: 1;
+  font-size: 12px;
+}
+
+.home-list-date{
+  width: 160rpx;
+}

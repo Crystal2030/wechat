@@ -1,0 +1,3 @@
+/* pages/course/more-course/more-course.wxss */
+
+@import "../../content/content-grid-template/content-grid-template.wxss";

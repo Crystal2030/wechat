@@ -1,0 +1,62 @@
+<!--pages/course/course-detail/course-detail.wxml-->
+<import src="../../content/content-star-template/content-star-template.wxml" />
+<view class="container">
+  <image class="head-img" src="{{course.movieImg}}" mode="aspectFill" />
+  <view class="head-img-hover" data-src="{{course.movieImg}}" catchtap="viewCoursePostImg">
+    <text class="main-title">{{course.title}}</text>
+    <text class="sub-title">{{course.country + " · "+course.year}}</text>
+    <view class="like">
+      <text class="highlight-font">
+        {{course.wishCount}}
+      </text>
+      <text class="plain-font">
+        人喜欢
+      </text>
+      <text class="highlight-font">
+        {{course.commentCount}}
+      </text>
+      <text class="plain-font">
+        条评论
+      </text>
+    </view>
+  </view>
+  <image class="course-img" src="{{course.movieImg}}" data-src="{{course.movieImg}}" catchtap="viewCoursePostImg"/>
+  <view class="summary">
+    <view class="original-title">
+      <text>{{course.originalTitle}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">评分</text>
+      <template is="starsTemplate" data="{{stars:course.stars, score:course.score}}" />
+    </view>
+    <view class="flex-row">
+      <text class="mark">导演</text>
+      <text>{{course.director.name}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">影人</text>
+      <text>{{course.casts}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">类型</text>
+      <text>{{course.generes}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="synopsis">
+    <text class="synopsis-font">剧情简介</text>
+    <text class="summary-content">{{course.summary}}</text>
+  </view>
+  <view class="hr"></view>
+  <view class="cast">
+    <text class="cast-font"> 影人</text>
+    <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
+      <block wx:for="{{course.castsInfo}}" wx:for-item="item">
+        <view class="cast-container">
+          <image class="cast-img" src="{{item.img}}"></image>
+          <text class="cast-name">{{item.name}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

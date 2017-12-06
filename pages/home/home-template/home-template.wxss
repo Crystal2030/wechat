@@ -1,0 +1,34 @@
+@import "../home-list-template/home-list-template.wxss";
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.home-head{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 60rpx;
+  align-items: center;
+}
+
+.home-title{
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.more{
+  font-size: 12px;
+  margin-right: 10rpx;
+}
+.arrow{
+  margin-right: 20rpx;
+  width: 9rpx;
+  height: 16rpx;
+  vertical-align: middle;
+}
+
