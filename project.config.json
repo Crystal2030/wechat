@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
 	"appid": "wxcfc67b8bcc6a0710",
-	"projectname": "jit_wechat_service",
+	"projectname": "wechat1",
 	"condition": {
 		"search": {
 			"current": -1,

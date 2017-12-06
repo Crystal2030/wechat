@@ -11,9 +11,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#b3d4db",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#07111b",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "WeChat"
   },
   "tabBar": {
     "borderStyle": "white",
@@ -22,14 +22,14 @@
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "images/tab/yuedu.png",
-        "selectedIconPath": "images/tab/yuedu_hl.png"
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home_hl.png"
       },
       {
         "pagePath": "pages/course/course",
         "text": "课程",
-        "iconPath": "images/tab/yuedu.png",
-        "selectedIconPath": "images/tab/yuedu_hl.png"
+        "iconPath": "images/tab/course.png",
+        "selectedIconPath": "images/tab/course_hl.png"
       },
       {
         "pagePath": "pages/article/article",
@@ -40,8 +40,8 @@
       {
         "pagePath": "pages/aboutme/aboutme",
         "text": "我",
-        "iconPath": "images/tab/yuedu.png",
-        "selectedIconPath": "images/tab/yuedu_hl.png"
+        "iconPath": "images/tab/me.png",
+        "selectedIconPath": "images/tab/me_hl.png"
       }
     ]
   },

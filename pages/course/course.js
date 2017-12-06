@@ -1,4 +1,4 @@
-var util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
 var app = getApp();
 Page({
   // RESTFul API JSON
@@ -15,15 +15,8 @@ Page({
 
   onLoad: function (event) {
     var inTheatersUrl = app.globalData.doubanBase +
-      "/v2/movie/in_theaters" + "?start=0&count=3";
-    var comingSoonUrl = app.globalData.doubanBase +
-      "/v2/movie/coming_soon" + "?start=0&count=3";
-    var top250Url = app.globalData.doubanBase +
-      "/v2/movie/top250" + "?start=0&count=3";
-
-    this.getMovieListData(inTheatersUrl, "inTheaters", "正在热映");
-    this.getMovieListData(comingSoonUrl, "comingSoon", "即将上映");
-    this.getMovieListData(top250Url, "top250", "豆瓣Top250");
+      "/v2/movie/in_theaters" + "?start=0&count=30";
+    this.getMovieListData(inTheatersUrl, "inTheaters", "课程列表");
   },
 
   onMoreTap: function (event) {
@@ -36,7 +29,7 @@ Page({
   onMovieTap: function (event) {
     var movieId = event.currentTarget.dataset.movieid;
     wx.navigateTo({
-      url: "movie-detail/movie-detail?id=" + movieId
+      url: "course-detail/course-detail?id=" + movieId
     })
   },
 
@@ -85,8 +78,8 @@ Page({
     for (var idx in moviesDouban.subjects) {
       var subject = moviesDouban.subjects[idx];
       var title = subject.title;
-      if (title.length >= 6) {
-        title = title.substring(0, 6) + "...";
+      if (title.length >= 18) {
+        title = title.substring(0, 18) + "...";
       }
       // [1,1,1,1,1] [1,1,1,0,0]
       var temp = {
@@ -101,7 +94,7 @@ Page({
     var readyData = {};
     readyData[settedKey] = {
       categoryTitle: categoryTitle,
-      movies: movies
+      courses: movies
     }
     this.setData(readyData);
   }

@@ -1,0 +1,12 @@
+<template name="courseTemplate">
+    <view class="course-container" catchtap="onMovieTap" data-movieId="{{movieId}}">
+        <view class='course-price'>
+          <text class='price'>250</text>
+        </view>
+        <view class="course-des">
+          <text class="course-title">{{title}}</text>
+          <text class="course-brief">WEB前端开发零基础课程（pc\移动端)（上课地点：北京  海淀  西二旗）</text>
+          <text class="course-enroll">5000人已报名</text>
+        </view>
+    </view>
+</template>

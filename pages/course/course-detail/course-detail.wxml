@@ -1,62 +1,52 @@
 <!--pages/course/course-detail/course-detail.wxml-->
-<import src="../../content/content-star-template/content-star-template.wxml" />
+<import src="../../stars/star-template.wxml" />
+<import src="../chapter-template/chapter-template.wxml" />
 <view class="container">
   <image class="head-img" src="{{course.movieImg}}" mode="aspectFill" />
   <view class="head-img-hover" data-src="{{course.movieImg}}" catchtap="viewCoursePostImg">
     <text class="main-title">{{course.title}}</text>
-    <text class="sub-title">{{course.country + " · "+course.year}}</text>
     <view class="like">
       <text class="highlight-font">
         {{course.wishCount}}
       </text>
       <text class="plain-font">
-        人喜欢
-      </text>
-      <text class="highlight-font">
-        {{course.commentCount}}
-      </text>
-      <text class="plain-font">
-        条评论
+        人参加
       </text>
     </view>
   </view>
-  <image class="course-img" src="{{course.movieImg}}" data-src="{{course.movieImg}}" catchtap="viewCoursePostImg"/>
-  <view class="summary">
-    <view class="original-title">
-      <text>{{course.originalTitle}}</text>
+  <view class="tool">
+    <view class="circle-img">
+      <image wx:if="{{collected}}" catchtap="onColletionTap" src="/images/icon/collection.png"></image>
+      <image wx:else catchtap="onColletionTap" src="/images/icon/collection-anti.png"></image>
+      <image catchtap="onShareTap" class="share-img" src="/images/icon/share.png"></image>
     </view>
-    <view class="flex-row">
-      <text class="mark">评分</text>
-      <template is="starsTemplate" data="{{stars:course.stars, score:course.score}}" />
-    </view>
-    <view class="flex-row">
-      <text class="mark">导演</text>
-      <text>{{course.director.name}}</text>
-    </view>
-    <view class="flex-row">
-      <text class="mark">影人</text>
-      <text>{{course.casts}}</text>
-    </view>
-    <view class="flex-row">
-      <text class="mark">类型</text>
-      <text>{{course.generes}}</text>
-    </view>
+    <view class="horizon"></view>
   </view>
-  <view class="hr"></view>
   <view class="synopsis">
-    <text class="synopsis-font">剧情简介</text>
+    <text class="synopsis-font">课程简介</text>
     <text class="summary-content">{{course.summary}}</text>
   </view>
   <view class="hr"></view>
-  <view class="cast">
-    <text class="cast-font"> 影人</text>
-    <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
-      <block wx:for="{{course.castsInfo}}" wx:for-item="item">
-        <view class="cast-container">
-          <image class="cast-img" src="{{item.img}}"></image>
-          <text class="cast-name">{{item.name}}</text>
-        </view>
-      </block>
-    </scroll-view>
+  <view class="mark">
+    <view class="mark-title-container">
+      <text class="mark-title">综合评分</text>
+      <text class="more-mark">查看全部1人评论</text>
+    </view>
+    <view class="star-container">
+      <image class="author-avatar" src="/images/avatar/2.png"></image>
+      <text class="author-name">Finit</text>
+      <template is="starsTemplate" data="{{stars:course.stars, score:course.score}}" />
+    </view>
   </view>
+  <view class="hr"></view>
+  <view class="chapter-container">
+      <text class="chapter-font">课程大纲</text>
+       <template is="chaptersTemplate" data="{{capters: course.capters}}" /> 
+  </view>
+
+  <view class="buy-container">
+    <text class="buy-price">￥250</text>
+    <text class="buy-btn">立即购买</text>
+  </view>
+
 </view>
