@@ -6,10 +6,10 @@
 }
 
 .home-list-img{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-right: 10rpx;
 }
 
 .home-list-title{

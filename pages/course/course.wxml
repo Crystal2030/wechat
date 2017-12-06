@@ -1,25 +1,7 @@
-<import src="../content/content-list-template/content-list-template.wxml" />
-<import src="../content/content-grid-template/content-grid-template.wxml" />
-<view class="search">
-  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-  <input type="text" placeholder="MySQL、Redis、HBase" 
-  placeholder-class="placeholder" bindfocus="onBindFocus"
-  bindblur="onBindBlur"/>
-  <image wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
-</view>
-<view class="container" wx:if="{{containerShow}}">
-  <view class="movies-template">
-    <template is="movieListTemplate" data="{{...inTheaters}}" />
-  </view>
-
-  <view class="movies-template">
-    <template is="movieListTemplate" data="{{...comingSoon}}" />
-  </view>
-  <view class="movies-template">
-    <template is="movieListTemplate" data="{{...top250}}"/>
+<import src="./course-list-template/course-list-template.wxml" />
+<view class="container">
+  <view class="courses-template">
+    <template is="courseListTemplate" data="{{...inTheaters}}" />
   </view>
 </view>
 
-<view class="search-panel" wx:if="{{searchPanelShow}}">
-    <template is="movieGridTemplate" data="{{...searchResult}}"/>
-</view>

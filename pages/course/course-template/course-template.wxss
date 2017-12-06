@@ -1,0 +1,50 @@
+.course-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #d9dde1;
+}
+
+.course-price {
+  flex: 0 0 120rpx;
+  margin-right: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #46b9d8 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACnRSTlMAMyoHIC0QJBcbF0u+NQAAAVxJREFUWMPtlEFLw0AQhQcjokdFKT3WgudQhOrN1vgDopbqLRTEcyh4Dmjuivh/7b7tsp022Z1r6LzTZsLb/fL2taRSqfZeDzOjTz5Makzvmi2LU6MrPjwamGGvaLYc5+btecqG1zv7MIYf8/bimw3/YKmoRe9+R8bFT+bcnoxzDQOZgWyTouaTXY0dGefqYx3JjHMtsQ5mVm1xFRTQiH9tAq4XnBrO7Dl1XHi8p6AmjKz2ZYll9rE+swQX1tHMCDqE/xfrWGZnha92Dx8WJ1vCXvqLjWfWN1vf8mLHembI3lwVJGS4i2TiwpORvRKd5L4swswWsIJLmBnyQnQCMtvFm9weJpIlm7qyyMmQNUoszkxUFv5blJWFvjKodJZ5ZlW1XwmIGvTUbhm0WIYdtEwv17I5PLpHyY2O0Bl/kV22HMBCJOsYZP9mskw7ph1TS4ct49lK85RUKpXK6R8BuGvGB+X/mgAAAABJRU5ErkJggg==") no-repeat center center;
+  background-size: 95%;
+}
+
+.price {
+  width: 120rpx;
+  height: 120rpx;
+  line-height:120rpx;
+  font-size: 50rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.course-des {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-title {
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  color: #46b9d8;
+}
+
+.course-brief {
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.course-enroll {
+  font-size: 20rpx;
+  color: #999;
+}

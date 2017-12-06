@@ -1,6 +1,6 @@
 <template name="homeListTemplate">
 <view class='home-list-container' catchtap='onCourseTap' data-courseId='{{course_id}}'>
-  <image class='home-list-img' src="/images/icon/star.png"></image>
+  <image class='home-list-img' src="/images/icon/course.png"></image>
   <text class='home-list-title'>{{title}}</text>
   <text class='home-list-date'>{{start_time}}</text>
 </view>

@@ -1,0 +1,19 @@
+.chapters-container{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 40rpx;
+}
+.chapter-img{
+  margin-right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.chapter-list{
+  display: flex;
+  flex-direction: column;
+}
+text{
+  margin-bottom: 10rpx;
+  font-size: 20rpx;
+  color: #2b333b;
+}
