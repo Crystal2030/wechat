@@ -38,6 +38,11 @@ Page({
     })
   },
 
+  onBuyTap: function(event) {
+    var courseId = event.currentTarget.dataset.courseid;
+    console.log(event);
+  },
+
   onColletionTap: function(event){
     this.getPostsCollectedAsy();
   },

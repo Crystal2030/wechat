@@ -27,6 +27,7 @@ class Course {
       director.id = data.directors[0].id;
     }
     var course = {
+      courseId: data.id,
       movieImg: data.images ? data.images.large : "",
       country: data.countries[0],
       title: data.title,

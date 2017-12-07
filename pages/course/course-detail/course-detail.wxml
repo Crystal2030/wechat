@@ -46,7 +46,7 @@
 
   <view class="buy-container">
     <text class="buy-price">￥250</text>
-    <text class="buy-btn">立即购买</text>
+    <text class="buy-btn" bindtap="onBuyTap" data-courseId='{{course.courseId}}'>立即购买</text>
   </view>
 
 </view>

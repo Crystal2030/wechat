@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/content/content",
     "pages/course/course",
     "pages/course/course-detail/course-detail",
     "pages/course/more-course/more-course",
-    "pages/article/article",
-    "pages/aboutme/aboutme",
+    "pages/mine/mine",
+    "pages/mine/order/order",
+    "pages/home/home",
+    "pages/article/article",  
     "pages/welcome/welcome"
   ],
   "window": {
