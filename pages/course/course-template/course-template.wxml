@@ -5,8 +5,8 @@
         </view>
         <view class="course-des">
           <text class="course-title">{{title}}</text>
-          <text class="course-brief">WEB前端开发零基础课程（pc\移动端)（上课地点：北京  海淀  西二旗）</text>
-          <text class="course-enroll">5000人已报名</text>
+          <text class="course-brief">MySQL运维内参详解(上课地点：北京  海淀  西二旗)</text>
+          <text class="course-enroll">3306人已报名</text>
         </view>
     </view>
 </template>

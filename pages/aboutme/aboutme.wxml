@@ -8,6 +8,14 @@
   </view>
   <view class='me-ctn-container'>
     <view class='me-ctn'>
+      <image class='me-ctn-image' src='/images/star.png'></image>
+      <text class='me-ctn-text'>我的收藏</text>
+    </view>
+    <view class='me-ctn'>
+      <image class='me-ctn-image' src='/images/course.png'></image>
+      <text class='me-ctn-text'>我的订单</text>
+    </view>
+    <view class='me-ctn'>
       <image class='me-ctn-image' src='/images/course.png'></image>
       <text class='me-ctn-text'>我的课程</text>
     </view>
