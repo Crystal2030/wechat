@@ -1,12 +1,12 @@
 <template name="courseTemplate">
-    <view class="course-container" catchtap="onMovieTap" data-movieId="{{movieId}}">
+    <view class="course-container" catchtap="toCourseDetail" data-courseId="{{courseId}}">
         <view class='course-price'>
-          <text class='price'>250</text>
+          <text class='price'>{{price}}</text>
         </view>
         <view class="course-des">
           <text class="course-title">{{title}}</text>
-          <text class="course-brief">MySQL运维内参详解(上课地点：北京  海淀  西二旗)</text>
-          <text class="course-enroll">3306人已报名</text>
+          <text class="course-brief">{{summary}}</text>
+          <text class="course-enroll">{{enrollNum}}人已报名</text>
         </view>
     </view>
 </template>

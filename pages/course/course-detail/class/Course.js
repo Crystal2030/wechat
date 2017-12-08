@@ -1,47 +1,31 @@
-var util = require('../../../../utils/util.js')
+var util = require('../../../../utils/util.js');
+var app = getApp();
 class Course {
   constructor(url) {
     this.url = url;
   }
 
-  getCourseData(cb) {
+  getCourseData(courseId, cb) {
     this.cb = cb;
-    util.http(this.url, this.processDoubanData.bind(this));
+    util.http(this.url,{"post_id": courseId},  'POST', this.processCoursesData.bind(this));
   }
 
-  processDoubanData(data) {
+  processCoursesData(data) {
+    data = data.data;
     if (!data) {
       return;
     }
-    var director = {
-      avatar: "",
-      name: "",
-      id: ""
-    }
-    if (data.directors[0] != null) {
-      if (data.directors[0].avatars != null) {
-        director.avatar = data.directors[0].avatars.large
-
-      }
-      director.name = data.directors[0].name;
-      director.id = data.directors[0].id;
-    }
+    console.log('---------Course------->', data)
     var course = {
-      courseId: data.id,
-      movieImg: data.images ? data.images.large : "",
-      country: data.countries[0],
-      title: data.title,
-      originalTitle: data.original_title,
-      wishCount: data.wish_count,
-      commentCount: data.comments_count,
-      year: data.year,
-      generes: data.genres.join("、"),
-      stars: util.convertToStarsArray(data.rating.stars),
-      score: data.rating.average,
-      director: director,
-      casts: util.convertToCastString(data.casts),
-      castsInfo: util.convertToCastInfos(data.casts),
-      summary: data.summary,
+      courseId: data.courseId,
+      courseTitle: data.title,
+      teacherId: data.teacher_id,
+      courseImg: app.globalData.apiBase + data.course_img,
+      stars: [1, 1, 1, 1, 0],//util.convertToStarsArray(subject.rating.stars)
+      price: '250',
+      average: '8.7', //course.rating.average暂无此字段
+      summary: '我是课程简介，暂无此字段', //course.sumary 暂无此字段
+      enrollNum: '3306', // course.enroll_num 暂无此字段
       capters: [
         {
           title: '第1章 课程介绍',

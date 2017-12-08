@@ -1,0 +1,30 @@
+/* pages/mine/address/address.wxss */
+.address-container{
+  display: flex;
+  flex-direction: column;
+}
+.address-row{
+  display: flex;
+  flex-direction: row;
+  margin: 0 20rpx;
+  border-bottom: 1px solid #f2f2f2;
+  height: 80rpx;
+  align-items: center;
+}
+.address-row text{
+  width: 120rpx;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+}
+.address-row input{
+  border: none;
+}
+.address-save{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  width: 80%;
+}
+button[type="default"]{
+  background: #999;
+  color: #fff;
+}

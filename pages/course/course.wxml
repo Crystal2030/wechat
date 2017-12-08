@@ -3,7 +3,7 @@
 <view class="container">
   <template is="loadingTemplate" wx:if="{{isLoading}}" />
   <view class="courses-template">
-    <template is="courseListTemplate" data="{{...inTheaters}}" />
+    <template is="courseListTemplate" data="{{...coursesList}}" />
   </view>
 </view>
 

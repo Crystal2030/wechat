@@ -1,23 +1,25 @@
 import { Course } from 'class/Course.js';
+import util from '../../../utils/util.js';
 var app = getApp();
 Page({
   data: {
-    course: {}
+    course: {},
+    teacher: {}
   },
   onLoad: function (options) {
     var courseId = options.id;
-    var url = app.globalData.doubanBase +
-      "/v2/movie/subject/" + courseId;
-    var movie = new Course(url);
-    // var movieData = movie.getMovieData();
-    // var that = this;
-    // movie.getMovieData(function (movie) {
-    //   that.setData({
-    //     movie: movie
-    //   })
-    // })
-    //C#、Java、Python lambda
-    movie.getCourseData((course) => {
+    var url = app.globalData.apiBase +
+      "/api/jitCourse/info";
+    var teacherUrl = app.globalData.apiBase + "/api/jitTeacher/info";
+    var course = new Course(url);
+    var that = this;
+    course.getCourseData(courseId, (course) => {
+      util.http(teacherUrl, { "teacher_id": course.teacherId}, 'POST', function(res) {
+        console.log(res.data);
+        that.setData({
+          teacher: res.data
+        });
+      });
       this.setData({
         course: course
       })
@@ -40,7 +42,7 @@ Page({
 
   onBuyTap: function(event) {
     var courseId = event.currentTarget.dataset.courseid;
-    console.log(event);
+    console.log(courseId);
   },
 
   onColletionTap: function(event){

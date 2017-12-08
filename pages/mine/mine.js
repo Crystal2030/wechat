@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
@@ -19,6 +19,11 @@ Page({
       url: './order/order',
     })
   },
+  toAddress: function (event) {
+    wx.navigateTo({
+      url: './address/address',
+    })
+  }
 
  
 })
