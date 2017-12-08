@@ -1,5 +1,7 @@
 <import src="./course-list-template/course-list-template.wxml" />
+<import src="../loading/loading-template.wxml" />
 <view class="container">
+  <template is="loadingTemplate" wx:if="{{isLoading}}" />
   <view class="courses-template">
     <template is="courseListTemplate" data="{{...inTheaters}}" />
   </view>

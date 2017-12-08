@@ -11,6 +11,7 @@ Page({
     searchResult: {},
     containerShow: true,
     searchPanelShow: false,
+    isLoading: true
   },
 
   onLoad: function (event) {
@@ -96,6 +97,7 @@ Page({
       categoryTitle: categoryTitle,
       courses: movies
     }
+    this.setData({isLoading: false});
     this.setData(readyData);
   }
 })

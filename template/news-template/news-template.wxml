@@ -1,9 +1,0 @@
-<template name="newsTemplate">
-<view class="news-container">
-  <view class='news'>
-  <image src="/images/icon/arrow-right.png"></image>
-  <text class='news-title'>《高性能MySQL运维》</text>
-  <text class='news-date'>2018-01-01</text>
-</view>
-</view>
-</template>
