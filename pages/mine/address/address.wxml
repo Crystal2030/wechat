@@ -1,0 +1,24 @@
+<!--pages/mine/address/address.wxml-->
+<view class='address-container'>
+  <view class='address-row'>
+    <text>收货人</text>
+    <input type='text' bindinput='bindReceiver'/>
+  </view>
+  <view class='address-row'>
+    <text>联系电话</text>
+    <input type='text' bindinput='bindTel'/>
+  </view>
+  <view class='address-row'>
+    <text>邮箱</text>
+    <input type='text' bindinput='bindEmail'/>
+  </view>
+  <view class='address-row'>
+    <text>公司</text>
+    <input type='text' bindinput='bindCompany'/>
+  </view>
+  <view class='address-row'>
+    <text>职位</text>
+    <input type='text' bindinput='bindPosition'/>
+  </view>
+  <button type='warn' size='default' class='address-save' loading='{{isLoading}}' disabled='{{isDisabled}}' catchtap='onSaveTap'>保存</button>
+</view>

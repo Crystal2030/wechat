@@ -6,11 +6,9 @@
         <text class="slogan">{{categoryTitle}}</text>
       </view>
       <view class="courses-container">
-      <block wx:for="{{courses}}" wx:for-item="course" wx:key="id">
-        
+      <block wx:for="{{allCourses}}" wx:for-item="course" wx:key="course.courseId">
         <template is="courseTemplate" data="{{...course}}"/>
       </block>
-        <template is="courseTemplate" />
       </view>
     </view>
   </view>

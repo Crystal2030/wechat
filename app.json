@@ -5,6 +5,7 @@
     "pages/course/more-course/more-course",
     "pages/mine/mine",
     "pages/mine/order/order",
+    "pages/mine/address/address",
     "pages/home/home",
     "pages/article/article",  
     "pages/welcome/welcome"
@@ -38,7 +39,7 @@
         "selectedIconPath": "images/tab/yuedu_hl.png"
       },
       {
-        "pagePath": "pages/aboutme/aboutme",
+        "pagePath": "pages/mine/mine",
         "text": "我",
         "iconPath": "images/tab/me.png",
         "selectedIconPath": "images/tab/me_hl.png"

@@ -32,12 +32,15 @@ function convertToStarsArray(stars) {
   return array;
 }
 
-function http(url, callBack) {
+function http(url, data, method, callBack) {
+  data = data || {};
   wx.request({
     url: url,
-    method: 'GET',
+    data: data,
+    method: method,
     header: {
-      "Content-Type": "json"
+      "Content-Type": "json",
+      "Session_key": wx.getStorageSync('session_key')
     },
     success: function (res) {
       callBack(res.data);
@@ -68,9 +71,22 @@ function convertToCastInfos(casts) {
   return castsArray;
 }
 
+function randomStr(len) {
+  var len = len || 32;
+  var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+  var charNum = chars.length;
+  var randomStr = '';
+  for (var i = 0; i < len; i++) {
+    randomStr += chars.charAt(Math.floor(Math.random() * charNum));
+  }
+  return randomStr;
+
+}
+
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
   convertToCastString: convertToCastString,
-  convertToCastInfos: convertToCastInfos
+  convertToCastInfos: convertToCastInfos,
+  randomStr: randomStr
 }

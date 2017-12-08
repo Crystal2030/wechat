@@ -2,12 +2,12 @@
 <import src="../../stars/star-template.wxml" />
 <import src="../chapter-template/chapter-template.wxml" />
 <view class="container">
-  <image class="head-img" src="{{course.movieImg}}" mode="aspectFill" />
-  <view class="head-img-hover" data-src="{{course.movieImg}}" catchtap="viewCoursePostImg">
-    <text class="main-title">{{course.title}}</text>
+  <image class="head-img" src="{{course.courseImg}}" mode="aspectFill" />
+  <view class="head-img-hover" data-src="{{course.courseImg}}" catchtap="viewCoursePostImg">
+    <text class="main-title">{{course.courseTitle}}</text>
     <view class="like">
       <text class="highlight-font">
-        {{course.wishCount}}
+        {{course.enrollNum}}
       </text>
       <text class="plain-font">
         人参加
@@ -29,13 +29,13 @@
   <view class="hr"></view>
   <view class="mark">
     <view class="mark-title-container">
-      <text class="mark-title">综合评分</text>
+      <text class="mark-title">讲师&课程评分</text>
       <text class="more-mark">查看全部1人评论</text>
     </view>
     <view class="star-container">
-      <image class="author-avatar" src="/images/avatar/2.png"></image>
-      <text class="author-name">Finit</text>
-      <template is="starsTemplate" data="{{stars:course.stars, score:course.score}}" />
+      <image class="author-avatar" src="{{teacher.teacher_img}}"></image>
+      <text class="author-name">{{teacher.teacher_name}}</text>
+      <template is="starsTemplate" data="{{stars:course.stars, score:course.average}}" />
     </view>
   </view>
   <view class="hr"></view>
@@ -45,7 +45,7 @@
   </view>
 
   <view class="buy-container">
-    <text class="buy-price">￥250</text>
+    <text class="buy-price">￥{{course.price}}</text>
     <text class="buy-btn" bindtap="onBuyTap" data-courseId='{{course.courseId}}'>立即购买</text>
   </view>
 
