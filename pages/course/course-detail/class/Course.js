@@ -22,11 +22,11 @@ class Course {
       teacherId: data.teacher_id,
       courseImg: app.globalData.apiBase + data.course_img,
       stars: [1, 1, 1, 1, 0],//util.convertToStarsArray(subject.rating.stars)
-      price: '250',
-      average: '8.7', //course.rating.average暂无此字段
-      summary: '我是课程简介，暂无此字段', //course.sumary 暂无此字段
-      enrollNum: '3306', // course.enroll_num 暂无此字段
-      capters: [
+      price: data.price,
+      average: data.rating, //course.rating.average暂无此字段
+      summary: data.summary, //course.sumary 暂无此字段
+      enrollNum: data.enroll_num, // course.enroll_num 暂无此字段
+      chapters: [
         {
           title: '第1章 课程介绍',
           sections: ['1-1 介绍课程目标和学习内容']

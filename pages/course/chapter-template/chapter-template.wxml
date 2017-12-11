@@ -1,11 +1,11 @@
 <template name="chaptersTemplate">
 
-  <block wx:for="{{capters}}" wx:for-item="capter" wx:key="unique">
+  <block wx:for="{{chapters}}" wx:for-item="chapter" wx:key="unique">
     <view class="chapters-container">
       <image class="chapter-img" src="/images/icon/chapter.png"></image>
       <view class="chapter-list">
-        <text>{{capter.title}}</text>
-        <block wx:for="{{capter.sections}}" wx:for-item="section" wx:key="unique">
+        <text>{{chapter.title}}</text>
+        <block wx:for="{{chapter.sections}}" wx:for-item="section" wx:key="unique">
           <text>{{section}}</text>
         </block>
       </view>

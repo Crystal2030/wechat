@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/course/course",
     "pages/course/course-detail/course-detail",
     "pages/course/more-course/more-course",
     "pages/mine/mine",
     "pages/mine/order/order",
     "pages/mine/address/address",
-    "pages/home/home",
     "pages/article/article",  
     "pages/welcome/welcome"
   ],

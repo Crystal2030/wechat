@@ -11,7 +11,7 @@
       <image  src="/images/ODF.jpg" data-postid="2"></image>
     </swiper-item>
   </swiper>
-  <template is="homeTemplate" data="{{...courseList}}"/>
-  <template is="homeTemplate" data="{{...activeList}}"/>
+  <template is="homeTemplate" data="{{...coursesList}}"/>
+  <!-- <template is="homeTemplate" data="{{...activeList}}"/> -->
 </view>
 

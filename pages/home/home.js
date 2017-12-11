@@ -1,4 +1,6 @@
-var postsData = require('../../data/posts-data.js') 
+//var postsData = require('../../data/posts-data.js') 
+var util = require('../../utils/util.js');
+var app = getApp();
 
 Page({
 
@@ -6,23 +8,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    courseList: {},
+    coursesList: {},
     activeList: {}
   },
   onLoad:function(){
-    this.setData(
-      {
-        courseList:{lists:postsData.courseList, category: '近期课程'},
-        activeList:{lists:postsData.activeList, category: '近期活动'}
-      }
-    );
+    
   },
-  onPostTap:function(event){
-    var postId = event.currentTarget.dataset.postid;
-    //console.log("onPostTap:"+postId)  将postId传入定向到指定文章详情页
-    wx.navigateTo({
-      url: '../content/content?id=' + postId
-    })
+  onReady: function(event){
+    var coursesUrl = app.globalData.apiBase + '/api/jitCourse/list';
+    var that = this;
+    util.getCourseListData(coursesUrl, "coursesList", "课程列表", function (res) {
+      that.setData(res);
+    });
   },
   onSwiperTap: function (event) {
     // target 和currentTarget
@@ -38,11 +35,11 @@ Page({
       url: '../course/course',
     });
   },
-  onCourseTap: function(event) {
+  onCourseDetailTap: function(event) {
     var courseId = event.currentTarget.dataset.courseid;
     console.log(event.currentTarget.dataset);
     wx.navigateTo({
-      url: "course-detail/course-detail?id=" + courseId
+      url: "../course/course-detail/course-detail?id=" + courseId
     })
   }
 

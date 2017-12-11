@@ -1,3 +1,5 @@
+var app = getApp();
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -83,10 +85,70 @@ function randomStr(len) {
 
 }
 
+function getCourseListData(url, settedKey, categoryTitle, cb) {
+  // var that = this;
+  wx.request({
+    url: url,
+    method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    data: {
+      "page_index": 1,
+      "page_size": 20
+    },
+    header: {
+      "Content-Type": "json",
+      "Session_key": wx.getStorageSync('session_key')
+    },
+    success: function (res) {
+      var readyData = processCoursesData(res.data, settedKey, categoryTitle);
+      cb&&cb(readyData);
+    },
+    fail: function (error) {
+      // fail
+      console.log(error)
+    }
+  })
+}
+
+function processCoursesData(courses, settedKey, categoryTitle) {
+  var coursesRes = [];
+  for (var idx in courses.data.list) {
+    var course = courses.data.list[idx];
+    var title = course.title;
+    // if (title.length >= 18) {
+    //   title = title.substring(0, 18) + "...";
+    // }
+    // [1,1,1,1,1] [1,1,1,0,0]
+    var temp = {
+      stars: [1, 1, 1, 1, 1],//util.convertToStarsArray(subject.rating.stars)
+      title: title,
+      coverageUrl: app.apiBase + course.course_img,
+      courseId: course.post_id,
+      startTime: course.update_time.split(' ')[0],
+      price: course.price,
+      average: course.rating, //course.rating.average暂无此字段
+      summary: course.summary, //course.sumary 暂无此字段
+      enrollNum: course.enroll_num // course.enroll_num 暂无此字段
+    }
+    coursesRes.push(temp)
+  }
+  var readyData = {};
+  readyData[settedKey] = {
+    categoryTitle: categoryTitle,
+    allCourses: coursesRes
+  }
+
+  return readyData;
+
+  // cb && cb(readyData);
+  // this.setData({ isLoading: false });
+  // this.setData(readyData);
+}
+
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
   convertToCastString: convertToCastString,
   convertToCastInfos: convertToCastInfos,
-  randomStr: randomStr
+  randomStr: randomStr,
+  getCourseListData: getCourseListData
 }
