@@ -48,6 +48,17 @@ Page({
     // })
   },
 
+  toNoPay: function(event) {
+    wx.navigateTo({
+      url: './order/order?idx=1',
+    });
+  },
+
+  toHasPay: function(event) {
+    wx.navigateTo({
+      url: './order/order?idx=2',
+    });
+  },
 
   toOrder: function(event) {
     wx.navigateTo({

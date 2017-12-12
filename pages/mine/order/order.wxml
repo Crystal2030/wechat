@@ -2,7 +2,7 @@
 
 <view class="container">
   <view class="headerView flex-wrp flex-tab">
-    <view class="top-bar-item {{currentTab==idx ? 'top-bar-active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    <view class="top-bar-item {{currentTab==idx ? 'top-bar-active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" data-idx="{{idx}}" bindtap="switchTab">
       <text class='top-bar-text'>{{itemName}}</text>
     </view>
   </view>

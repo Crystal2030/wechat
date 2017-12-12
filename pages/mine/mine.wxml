@@ -10,11 +10,11 @@
       <image class='me-ctn-image' src='/images/icon/icon_already_complete.png'></image>
       <text class='me-ctn-text'>我的订单</text>
     </view>
-    <view class='me-ctn'>
+    <view class='me-ctn' catchtap='toNoPay'>
       <image class='me-ctn-image' src='/images/icon/icon_no_comment.png'></image>
       <text class='me-ctn-text'>未支付</text>
     </view>
-    <view class='me-ctn'>
+    <view class='me-ctn' catchtap='toHasPay'>
       <image class='me-ctn-image' src='/images/icon/icon_already_shipped.png'></image>
       <text class='me-ctn-text'>已支付</text>
     </view>
