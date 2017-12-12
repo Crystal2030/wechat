@@ -36,6 +36,7 @@ function convertToStarsArray(stars) {
 
 function http(url, data, method, callBack) {
   data = data || {};
+  
   wx.request({
     url: url,
     data: data,
@@ -82,31 +83,35 @@ function randomStr(len) {
     randomStr += chars.charAt(Math.floor(Math.random() * charNum));
   }
   return randomStr;
-
 }
 
-function getCourseListData(url, settedKey, categoryTitle, cb) {
+function getCourseListData(url, settedKey, categoryTitle,pageIndex,pageSize,cb) {
   // var that = this;
-  wx.request({
-    url: url,
-    method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    data: {
-      "page_index": 1,
-      "page_size": 20
-    },
-    header: {
-      "Content-Type": "json",
-      "Session_key": wx.getStorageSync('session_key')
-    },
-    success: function (res) {
-      var readyData = processCoursesData(res.data, settedKey, categoryTitle);
-      cb&&cb(readyData);
-    },
-    fail: function (error) {
-      // fail
-      console.log(error)
-    }
-  })
+  if (wx.getStorageSync('session_key')){
+    wx.request({
+      url: url,
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      data: {
+        "page_index": pageIndex,
+        "page_size": pageSize
+      },
+      header: {
+        "Content-Type": "json",
+        "Session_key": wx.getStorageSync('session_key')
+      },
+      success: function (res) {
+        var readyData = processCoursesData(res.data, settedKey, categoryTitle);
+        cb && cb(readyData);
+      },
+      fail: function (error) {
+        // fail
+        console.log(error)
+      }
+    })
+  }else{
+    console.log('2222');
+    wx.login()
+  }
 }
 
 function processCoursesData(courses, settedKey, categoryTitle) {
@@ -136,7 +141,6 @@ function processCoursesData(courses, settedKey, categoryTitle) {
     categoryTitle: categoryTitle,
     allCourses: coursesRes
   }
-
   return readyData;
 
   // cb && cb(readyData);

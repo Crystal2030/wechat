@@ -1,5 +1,8 @@
 <import src="./home-template/home-template.wxml" />
+<import src="../course/course-list-template/course-list-template.wxml" />
+<import src="../loading/loading-template.wxml" />
 <view class="container">
+<template is="loadingTemplate" wx:if="{{isLoading}}" />
   <swiper catchtap='onSwiperTap' indicator-dots="true" autoplay="true" interval="5000">
     <swiper-item>
       <image  src="/images/ACMUG.jpg" data-postid="0"></image>

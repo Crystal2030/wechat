@@ -1,24 +1,24 @@
 <!--pages/mine/address/address.wxml-->
 <view class='address-container'>
   <view class='address-row'>
-    <text>收货人</text>
-    <input type='text' bindinput='bindReceiver'/>
+    <text>真实姓名</text>
+    <input type='text' bindinput='bindReceiver' value='{{username}}'/>
   </view>
   <view class='address-row'>
     <text>联系电话</text>
-    <input type='text' bindinput='bindTel'/>
+    <input type='text' bindinput='bindTel' value='{{telephone}}'/>
   </view>
   <view class='address-row'>
-    <text>邮箱</text>
-    <input type='text' bindinput='bindEmail'/>
+    <text>个人邮箱</text>
+    <input type='text' bindinput='bindEmail' value='{{email}}'/>
   </view>
   <view class='address-row'>
-    <text>公司</text>
-    <input type='text' bindinput='bindCompany'/>
+    <text>公司名称</text>
+    <input type='text' bindinput='bindCompany' value='{{company}}'/>
   </view>
   <view class='address-row'>
-    <text>职位</text>
-    <input type='text' bindinput='bindPosition'/>
+    <text>所在职位</text>
+    <input type='text' bindinput='bindPosition' value='{{position}}'/>
   </view>
   <button type='warn' size='default' class='address-save' loading='{{isLoading}}' disabled='{{isDisabled}}' catchtap='onSaveTap'>保存</button>
 </view>

@@ -5,11 +5,11 @@
       <view class="course-head">
         <text class="slogan">{{categoryTitle}}</text>
       </view>
-      <view class="courses-container">
+      <scroll-view class="courses-container" scroll-y="true" scroll-x="false" bindscrolltolower="onScrollLower">
       <block wx:for="{{allCourses}}" wx:for-item="course" wx:key="course.courseId">
         <template is="courseTemplate" data="{{...course}}"/>
       </block>
-      </view>
+      </scroll-view>
     </view>
   </view>
 </template>

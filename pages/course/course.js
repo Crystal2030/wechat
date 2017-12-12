@@ -6,18 +6,23 @@ Page({
     searchResult: {},
     containerShow: true,
     searchPanelShow: false,
-    isLoading: true
+    isLoading: true,
+    totalCount: 1,
   },
 
   onLoad: function (event) {
-    
+
   },
-  onReady: function(event) {
+  onReady: function (event) {
     var coursesUrl = app.globalData.apiBase + '/api/jitCourse/list';
     var that = this;
-    util.getCourseListData(coursesUrl, "coursesList", "课程列表", function (res) {
+    var totalCount = that.data.totalCount;
+    util.getCourseListData(coursesUrl, "coursesList", "课程列表", 1, 20, function (res) {
+      that.data.totalCount += 2;
       that.setData({ isLoading: false });
       that.setData(res);
+      // wx.hideNavigationBarLoading();
+      // wx.stopPullDownRefresh();
     });
   },
 
@@ -56,4 +61,24 @@ Page({
     var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
     this.getMovieListData(searchUrl, "searchResult", "");
   },
+
+  onScrollLower: function (event) {
+    console.log(event);
+    console.log('======>',this.data.totalCount)
+    // util.getCourseListData(coursesUrl, "coursesList", "课程列表", this.data.totalCount, 2, function (res) {
+    //   wx.hideNavigationBarLoading();
+    //   wx.stopPullDownRefresh();
+    // });
+    wx.showNavigationBarLoading()
+  },
+  onPullDownRefresh: function (event) {
+    // util.getCourseListData(coursesUrl, "coursesList", "课程列表", 1, 2, function (res) {
+    //   this.data.totalCount += 2;
+    //   that.setData({ isLoading: false });
+    //   that.setData(res);
+    //   wx.hideNavigationBarLoading();
+    //   wx.stopPullDownRefresh();
+    // });
+    wx.showNavigationBarLoading();
+  }
 })

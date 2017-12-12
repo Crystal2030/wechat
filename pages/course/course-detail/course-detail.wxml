@@ -41,7 +41,7 @@
   <view class="hr"></view>
   <view class="chapter-container">
       <text class="chapter-font">课程大纲</text>
-       <template is="chaptersTemplate" data="{{capters: course.capters}}" /> 
+       <template is="chaptersTemplate" data="{{chapters: course.chapters}}" /> 
   </view>
 
   <view class="buy-container">

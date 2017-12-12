@@ -2,9 +2,8 @@
 <view class='container'>
   <image class='me-head-bg' src='/images/bg.jpg'></image>
   <view class='me-head'>
-    <image class='author' src='/images/avatar/1.png'></image>
-    <text class='course-name'>极数课堂</text>
-    <text class='author-name'>用户ID:308211</text>
+    <image class='author' src='{{userInfo.avatarUrl}}'></image>
+    <text class='course-name'>{{userInfo.nickName}}</text>
   </view>
   <view class='me-ctn-container'>
     <view class='me-ctn' catchtap='toOrder'>
@@ -19,14 +18,20 @@
       <image class='me-ctn-image' src='/images/icon/icon_already_shipped.png'></image>
       <text class='me-ctn-text'>已支付</text>
     </view>
-    <view class='me-ctn' catchtap='toAddress'>
-      <image class='me-ctn-image' src='/images/icon/icon_address.png'></image>
-      <text class='me-ctn-text'>收货地址</text>
+    <view class='me-ctn' catchtap='downloadTap'>
+      <image class='me-ctn-image' src='/images/icon/icon_already_shipped.png'></image>
+      <text class='me-ctn-text'>资源下载</text>
     </view>
+
+     <view class='me-ctn' catchtap='toAddress'>
+      <image class='me-ctn-image' src='/images/icon/icon_address.png'></image>
+      <text class='me-ctn-text'>个人信息</text>
+    </view> 
     <!-- <view class='me-ctn'>
       <image class='me-ctn-image' src='/images/icon/icon_customer_service.png'></image>
       <text class='me-ctn-text'>售后</text>
     </view> -->
   </view>
 </view>
+
 

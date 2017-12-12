@@ -41,4 +41,5 @@
 .courses-container{
     display:flex;
     flex-direction: column;
+    /* height: 300rpx; */
 }

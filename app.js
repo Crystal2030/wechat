@@ -5,14 +5,12 @@ App({
     //var logs = wx.getStorageSync('logs') || []
     //logs.unshift(Date.now())
     //wx.setStorageSync('logs', logs)
-
     // 登录
+    var that = this;
     wx.login({
       success: function (res) {
-        console.log('获取用户code:', res);
 
         if (res.code) {
-
           // 发起网络请求
           wx.request({
             url: 'http://123.206.68.105:4406/api/login',
@@ -22,12 +20,11 @@ App({
             },
             data: { "js_code": res.code },
             success: res => {
-              console.log('获取用户res:', res);
-              console.log('获取用户session_key:', res.data.data.session_key);
-              wx.setStorage({
-                key: 'session_key',
-                data: res.data.data.session_key,
-              })
+              wx.setStorageSync('session_key', res.data.data.session_key)
+              // wx.setStorage({
+              //   key: 'session_key',
+              //   data: res.data.data.session_key,
+              // })
               
               //this.globalData.session_key = res.data.data.data.session_key
             }
@@ -44,7 +41,6 @@ App({
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
             wx.getUserInfo({
               success: res => {
-                console.log('-----userInfo----->',res);
                 // 可以将 res 发送给后台解码出 unionId
                 this.globalData.userInfo = res.userInfo
 
@@ -71,11 +67,11 @@ App({
       })
   },
   globalData: {
-    userInfo: null,
+    userInfo: {},
     g_isPlayingMusic: false,
     g_currentMusicPostId: null,
     doubanBase: "https://api.douban.com",
     apiBase: "http://123.206.68.105:4406",
-    session_key: null,
+    session_key: '',
   }
 })

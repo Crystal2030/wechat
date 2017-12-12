@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/course/course",
+    "pages/mine/mine",
+    "pages/home/home",
     "pages/course/course-detail/course-detail",
     "pages/course/more-course/more-course",
-    "pages/mine/mine",
+    "pages/content/content",
     "pages/mine/order/order",
+    "pages/mine/resources/resources",
     "pages/mine/address/address",
-    "pages/article/article",  
-    "pages/welcome/welcome"
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",

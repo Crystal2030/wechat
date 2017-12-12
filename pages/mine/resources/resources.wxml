@@ -1,0 +1,4 @@
+<!--pages/mine/resources/resources.wxml-->
+<view>
+  <text>{{resources.url}}</text>
+</view>
