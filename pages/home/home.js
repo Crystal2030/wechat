@@ -50,14 +50,11 @@ Page({
   },
   onReady: function(event) {
     var that = this;
-    
-    setTimeout(function(){
-      var coursesUrl = app.globalData.apiBase + '/api/jitCourse/list';
-      util.getCourseListData(coursesUrl, "coursesList", "课程列表", 1,5,function (res) {
-        that.setData({ isLoading: false });
-        that.setData(res);
-      });
-    }, 2000)
+    var coursesUrl = app.globalData.apiBase + '/api/jitCourse/list';
+    util.getCourseListData(coursesUrl, "coursesList", "课程列表", 1, 5, function (res) {
+      that.setData({ isLoading: false });
+      that.setData(res);
+    });
   },
   onSwiperTap: function (event) {
     // target 和currentTarget

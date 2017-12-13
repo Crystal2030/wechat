@@ -84,33 +84,55 @@ function randomStr(len) {
   }
   return randomStr;
 }
-
+function getCourseList(url, settedKey, categoryTitle, pageIndex, pageSize, cb){
+  wx.request({
+    url: url,
+    method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    data: {
+      "page_index": pageIndex,
+      "page_size": pageSize
+    },
+    header: {
+      "Content-Type": "json",
+      "Session_key": wx.getStorageSync('session_key')
+    },
+    success: function (res) {
+      var readyData = processCoursesData(res.data, settedKey, categoryTitle);
+      cb && cb(readyData);
+    },
+    fail: function (error) {
+      // fail
+      console.log(error)
+    }
+  })
+}
 function getCourseListData(url, settedKey, categoryTitle,pageIndex,pageSize,cb) {
   // var that = this;
   if (wx.getStorageSync('session_key')){
-    wx.request({
-      url: url,
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      data: {
-        "page_index": pageIndex,
-        "page_size": pageSize
-      },
-      header: {
-        "Content-Type": "json",
-        "Session_key": wx.getStorageSync('session_key')
-      },
-      success: function (res) {
-        var readyData = processCoursesData(res.data, settedKey, categoryTitle);
-        cb && cb(readyData);
-      },
-      fail: function (error) {
-        // fail
-        console.log(error)
-      }
-    })
+    getCourseList(url, settedKey, categoryTitle, pageIndex, pageSize, cb)
   }else{
     console.log('2222');
-    wx.login()
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          // 发起网络请求
+          wx.request({
+            url: 'http://123.206.68.105:4406/api/login',
+            method: 'POST',
+            header: {
+              'Content-Type': 'application/json'
+            },
+            data: { "js_code": res.code },
+            success: res => {
+              wx.setStorageSync('session_key', res.data.data.session_key)
+              getCourseList(url, settedKey, categoryTitle, pageIndex, pageSize, cb)
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    })
   }
 }
 

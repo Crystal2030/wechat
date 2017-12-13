@@ -21,12 +21,6 @@ App({
             data: { "js_code": res.code },
             success: res => {
               wx.setStorageSync('session_key', res.data.data.session_key)
-              // wx.setStorage({
-              //   key: 'session_key',
-              //   data: res.data.data.session_key,
-              // })
-              
-              //this.globalData.session_key = res.data.data.data.session_key
             }
           })
         } else {
