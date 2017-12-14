@@ -1,2 +1,7 @@
 <!--pages/download/download-detail/download-detail.wxml-->
-<text>pages/download/download-detail/download-detail.wxml</text>
+<block wx:for="{{downloadList}}" wx:for-item="download" wx:key="unique">
+  <text>{{download.category_name}}</text>
+  <block wx:for="{{download.download_url_list}}" wx:for-item="item" wx:key="unique">
+    <text>{{item.name}}</text>
+  </block>
+</block>

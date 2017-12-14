@@ -1,18 +1,31 @@
 // pages/download/download-detail/download-detail.js
+const app = getApp();
+const util = require('../../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    downloadList: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this;
+    const detailUrl = app.globalData.apiBase + '/api/jitDownLoadCenter/downLoadCenterInfoQuery';
+    let Session_Key = wx.getStorageSync('session_key');
+    let category_id = options.id;
+    let data = { Session_Key, category_id};
+    util.http(detailUrl, data, 'POST', function(resource) {
+      console.log(resource)
+      if (resource.code == 200) {
+        that.setData({ downloadList: JSON.parse(resource.data.url_list) });
+        console.log(that.data.downloadList)
+      }
+    })
   },
 
   /**

@@ -1,4 +1,6 @@
 <!--pages/mine/resources/resources.wxml-->
 <view>
-  <text>{{resources.url}}</text>
+  <block wx:for="{{resources}}" wx:for-item="resource" wx:key="unique" class="resource-container">
+    <text data-categoryId="{{resource.category_id}}" catchtap="goDownloadDetail">{{resource.category_name}}</text>
+  </block>
 </view>
