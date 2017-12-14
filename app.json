@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/download/download",
+    "pages/download/download-detail/download-detail",
     "pages/course/course",
     "pages/mine/mine",
     "pages/home/home",
@@ -7,7 +9,6 @@
     "pages/course/more-course/more-course",
     "pages/content/content",
     "pages/mine/order/order",
-    "pages/mine/resources/resources",
     "pages/mine/address/address",
     "pages/article/article"
   ],

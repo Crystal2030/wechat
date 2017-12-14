@@ -19,12 +19,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getUserInfo({
-      success: res => {
-        console.log(res.userInfo);
-        this.setData({userInfo: res.userInfo})
-      }
-    })
+    console.log('------mine------>', app.globalData.userInfo);
+    if (app.globalData.userInfo) {
+      this.setData({ userInfo: app.globalData.userInfo })
+    } else {
+      wx.getUserInfo({
+        success: res => {
+          console.log(res.userInfo);
+          this.setData({ userInfo: res.userInfo })
+        }
+      });
+    }
   },
 
   downloadTap: function(event){

@@ -1,12 +1,11 @@
-// pages/mine/resources/resources.js
+// pages/download/download-detail/download-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    resources: {url: 'https://pan.baidu.com/s/1pLwZaND'}
-    
+  
   },
 
   /**
